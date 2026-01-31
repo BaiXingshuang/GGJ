@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class NotebookUI : MonoBehaviour
 {
     public static NotebookUI Instance;
-    public Text contentText; // 拖入UI Text组件
+    public TMP_Text contentText; // 拖入UI Text组件
     //public ScrollRect scrollRect;
 
     void Awake() { Instance = this; }
