@@ -75,3 +75,5 @@ UnityEngine.Purchasing.WinRTStub.csproj
 UnityEngine.SpatialTracking.csproj
 UnityEngine.TestRunner.csproj
 UnityEngine.XR.LegacyInputHelpers.csproj
+Assembly-CSharp.csproj
+obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache
