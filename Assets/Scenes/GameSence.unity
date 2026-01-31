@@ -1506,7 +1506,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -14.270043, y: 0.9762876}
+  m_AnchoredPosition: {x: -14.270043, y: 76.68633}
   m_SizeDelta: {x: 4, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &890722094
@@ -3849,7 +3849,7 @@ GameObject:
   - component: {fileID: 1957293151}
   - component: {fileID: 1957293150}
   m_Layer: 5
-  m_Name: Esc
+  m_Name: Set
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3871,7 +3871,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1169, y: 116.58}
+  m_AnchoredPosition: {x: -1442, y: 428.01}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1957293150
@@ -3888,8 +3888,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartScene: 0
   GameScene: 1
+  SetScene: 2
   btnToGame: {fileID: 0}
-  btnToStart: {fileID: 1957293151}
+  btnToStart: {fileID: 0}
+  btnToSet: {fileID: 1957293151}
 --- !u!114 &1957293151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3936,7 +3938,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1957293150}
         m_TargetAssemblyTypeName: PlayerUI, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: LoadSetScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4750,7 +4752,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 385636591}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.75681317
+  m_Size: 0.7837927
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

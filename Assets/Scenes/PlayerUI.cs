@@ -21,8 +21,8 @@ public class PlayerUI : MonoBehaviour
             btnToGame.onClick.AddListener(LoadGameScene);
         if (btnToStart != null)
             btnToStart.onClick.AddListener(LoadStartScene);
-        if (btnToStart != null)
-            btnToStart.onClick.AddListener(LoadSetScene);
+        if (btnToSet != null)
+            btnToSet.onClick.AddListener(LoadSetScene);
 
     }
 
