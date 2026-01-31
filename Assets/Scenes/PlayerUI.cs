@@ -13,6 +13,7 @@ public class PlayerUI : MonoBehaviour
     public Button btnToGame;    // 在Inspector拖入“进入游戏”按钮
     public Button btnToStart;   // 在Inspector拖入“返回初始”按钮
     public Button btnToSet;     // 在Inspector拖入“设置”按钮
+    public Button btnToEsc;     //返回桌面
 
     private void Start()
     {
@@ -23,6 +24,9 @@ public class PlayerUI : MonoBehaviour
             btnToStart.onClick.AddListener(LoadStartScene);
         if (btnToSet != null)
             btnToSet.onClick.AddListener(LoadSetScene);
+        if (btnToEsc != null)
+            btnToEsc.onClick.AddListener(LoadEscScene);
+
 
     }
 
@@ -41,5 +45,14 @@ public class PlayerUI : MonoBehaviour
     public void LoadSetScene()
     {
         SceneManager.LoadScene(SetScene);
+    }
+
+    public void LoadEscScene()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
