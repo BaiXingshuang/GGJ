@@ -75,5 +75,6 @@ UnityEngine.Purchasing.WinRTStub.csproj
 UnityEngine.SpatialTracking.csproj
 UnityEngine.TestRunner.csproj
 UnityEngine.XR.LegacyInputHelpers.csproj
+/[Uu]ser[Ss]ettings/
 *.vsidx
 *.cache
