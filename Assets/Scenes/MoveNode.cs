@@ -24,4 +24,13 @@ public class MoveNode : MonoBehaviour
         PlayerMovement.Instance.MoveToNextNode(this);
         Debug.Log("Move");
     }
+
+    private bool objectsShowed;
+    public void ShowObjects()
+    {
+        if(objectsShowed)return;
+
+        objectsShowed = true;
+        Debug.Log("Show Objects");
+    }
 }

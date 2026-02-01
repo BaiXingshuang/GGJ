@@ -25,8 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private RaycastHit2D hitInfo;
     public float requireHoldTime = 3f;
     private float lastDown,lastUp, curDown, curUp;
-    private bool showedObjects;
     private bool holding;
+    private MoveNode selectedNode;
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
@@ -37,7 +37,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 if(hitInfo.transform.TryGetComponent<MoveNode>(out var moveNode))
                 {
-                    lastDown = curDown;lastUp = curUp;
+                    if(selectedNode == moveNode)
+                    {
+                        lastDown = curDown;lastUp = curUp;
+                    }
 
                     curDown = Time.timeSinceLevelLoad;
                     holding = true;
@@ -49,23 +52,31 @@ public class PlayerMovement : MonoBehaviour
             if(hitInfo.transform.TryGetComponent<MoveNode>(out var moveNode))
             {
                 curUp = Time.timeSinceLevelLoad;
-                if(!showedObjects && curUp - curDown >= requireHoldTime)
+                if(curUp - curDown >= requireHoldTime && moveNode == curMoveNode)
                 {
-                    Debug.Log("Show Objects");
-                    showedObjects = true;
+                    moveNode.ShowObjects();
                 }
             }
         }
         if(Input.GetMouseButtonUp(0))
         {
-            showedObjects = false;holding = false;
+            holding = false;
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             hitInfo =Physics2D.Raycast(new Vector2(ray.origin.x, ray.origin.y),Vector2.zero,Mathf.Infinity);
             if(hitInfo.transform.TryGetComponent<MoveNode>(out var moveNode))
             {
-                if(curUp - curDown < requireHoldTime)
+                if(curUp - lastDown < 0.5f)
                 {
-                    MoveToNextNode(moveNode);
+                    Debug.Log("doubleClick");
+                    if(selectedNode == moveNode)
+                    {
+                        MoveToNextNode(moveNode);
+                    }
+                }
+                else if(curUp - curDown < requireHoldTime)
+                {
+                    //MoveToNextNode(moveNode);
+                    selectedNode = moveNode;
                 }
             }
         }
