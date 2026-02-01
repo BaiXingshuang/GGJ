@@ -20,22 +20,53 @@ public class PlayerMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private Transform hitTransform;
+    private Ray ray;
+    private RaycastHit2D hitInfo;
+    public float requireHoldTime = 3f;
+    private float lastDown,lastUp, curDown, curUp;
+    private bool showedObjects;
+    private bool holding;
     void Update()
     {
-        // if(Input.GetMouseButtonDown(0))
-        // {
-        //     Vector3 clickPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //     clickPos.z = 0;
-        //     MoveToNextPoint(clickPos);
-        // }
         if(Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hitInfo =Physics2D.Raycast(new Vector2(ray.origin.x, ray.origin.y),Vector2.zero,Mathf.Infinity);
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            hitInfo =Physics2D.Raycast(new Vector2(ray.origin.x, ray.origin.y),Vector2.zero,Mathf.Infinity);
             if(hitInfo)
             {
-                //Debug.Log(hitInfo.transform.name);
-                MoveToNextNode(hitInfo.transform.GetComponent<MoveNode>());
+                if(hitInfo.transform.TryGetComponent<MoveNode>(out var moveNode))
+                {
+                    lastDown = curDown;lastUp = curUp;
+
+                    curDown = Time.timeSinceLevelLoad;
+                    holding = true;
+                }
+            }
+        }
+        if(holding)
+        {
+            if(hitInfo.transform.TryGetComponent<MoveNode>(out var moveNode))
+            {
+                curUp = Time.timeSinceLevelLoad;
+                if(!showedObjects && curUp - curDown >= requireHoldTime)
+                {
+                    Debug.Log("Show Objects");
+                    showedObjects = true;
+                }
+            }
+        }
+        if(Input.GetMouseButtonUp(0))
+        {
+            showedObjects = false;holding = false;
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            hitInfo =Physics2D.Raycast(new Vector2(ray.origin.x, ray.origin.y),Vector2.zero,Mathf.Infinity);
+            if(hitInfo.transform.TryGetComponent<MoveNode>(out var moveNode))
+            {
+                if(curUp - curDown < requireHoldTime)
+                {
+                    MoveToNextNode(moveNode);
+                }
             }
         }
         HandleMovement();
@@ -49,8 +80,8 @@ public class PlayerMovement : MonoBehaviour
             MoveToNextPoint(nextNode.transform.position);
             curMoveNode = nextNode;
         }
-        else
-            Debug.Log("null of " + nextMoveNodeNum);
+        // else
+        //     Debug.Log("null of " + nextMoveNodeNum);
     }
 
     public void MoveToNextPoint(Vector3 nextPos)

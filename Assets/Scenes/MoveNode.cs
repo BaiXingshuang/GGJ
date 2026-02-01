@@ -12,6 +12,8 @@ public class MoveNode : MonoBehaviour
     public NodeNum curNodeNum;
     public List<NodeNum> nearNodes;
 
+    public RoomDatabase roomDatabase;
+
     public NodeNum GetNodeNum()
     {
         return curNodeNum;

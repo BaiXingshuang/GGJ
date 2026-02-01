@@ -80,3 +80,5 @@ obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache
 /[Uu]ser[Ss]ettings/
 *.vsidx
 *.cache
+UserSettings/EditorUserSettings.asset
+*.csproj
