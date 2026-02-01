@@ -77,5 +77,6 @@ UnityEngine.TestRunner.csproj
 UnityEngine.XR.LegacyInputHelpers.csproj
 Assembly-CSharp.csproj
 obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache
+/[Uu]ser[Ss]ettings/
 *.vsidx
 *.cache
