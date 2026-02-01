@@ -18,3 +18,13 @@ MonoBehaviour:
     resultText: "\u4ED6\u5728\u770B\u95E8\uFF0C\u5F88\u8B66\u89C9\u6D4B\u8BD5VS\u662F\u4E22\u9884\u7B97\u5EA6VBSKV\u88AB\u8BF4DDuVB\u82CF\u82CFDHVis\u7684\u5927Vi\u82CFv\u56DBuv\u6211i\u5076\u662F\u4E22v\u725B\u5973iuv\u4F60v\u90A3\u65E5u\u662F\u4E22\u627F\u8BFA\u56DB\u5927V\u725Bv\u4F60vu\u60A8"
     unlockClueID: 
     stealthRiskMultiplier: 0
+  - interactableID: NPC7
+    maskID: 'Thief        '
+    resultText: info7
+    unlockClueID: 
+    stealthRiskMultiplier: 0
+  - interactableID: NPC7
+    maskID: 'Thief        '
+    resultText: info7
+    unlockClueID: 
+    stealthRiskMultiplier: 0
