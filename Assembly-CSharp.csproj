@@ -79,11 +79,11 @@
     <Compile Include="Assets\Scenes\PlayerMovement.cs" />
     <Compile Include="Assets\Scenes\MouseEvent.cs" />
     <Compile Include="Assets\Code\GameManager.cs" />
+    <Compile Include="Assets\Code\UI\UIdlow.cs" />
     <Compile Include="Assets\Scenes\InteractableNode.cs" />
     <Compile Include="Assets\Scenes\Rotatement.cs" />
     <Compile Include="Assets\Scenes\InputDefine.cs" />
     <Compile Include="Assets\Scenes\StealthSystem.cs" />
-    <Compile Include="Assets\Scenes\UIdlow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
